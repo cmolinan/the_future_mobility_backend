@@ -1,0 +1,19 @@
+### vehicles#index
+GET http://127.0.0.1:3000/api/v1/vehicles
+
+### vehicles#create
+POST http://127.0.0.1:3000/api/v1/vehicles HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{"vehicle": {
+    "name":"vehicle name",
+     "image":"image link"
+    }
+}
+
+### vehicles#show
+GET http://127.0.0.1:3000/api/v1/vehicles/:id
+
+### Vehicles#destroy
+DELETE http://127.0.0.1:3000/api/v1/vehicles/:id
