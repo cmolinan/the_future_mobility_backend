@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
+
 Rails.application.routes.draw do
+  devise_for :users, defaults: { format: :json } 
   get 'reservations/index'
   get 'reservations/show'
   get 'reservations/create'
