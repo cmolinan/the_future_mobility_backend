@@ -5,7 +5,11 @@ class Api::V1::VehiclesController < ApplicationController
     render json: vehicles
   end
 
-  def show; end
+  def show
+    vehicle = Vehicle.find[params[:vehicle_id]]
+
+    render json: vehicle
+  end
 
   def create; end
 
