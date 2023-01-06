@@ -21,4 +21,10 @@ class Api::V1::ReservationsController < ApplicationController
       render json: reservation.errors.full_messages
     end
   end
+
+  private
+
+  def create_reservation_params
+    params.require(:reservation).permit(:reserve_date, :address)
+  end
 end
