@@ -6,13 +6,13 @@ class Api::V1::VehiclesController < ApplicationController
   end
 
   def show
-    vehicle = Vehicle.find[params[:vehicle_id]]
+    vehicle = Vehicle.find(params[:id])
 
     render json: vehicle
   end
 
   def create
-    vehicle = Vehicle.new(crete_vehicle_params)
+    vehicle = Vehicle.new(create_vehicle_params)
 
     if vehicle.save
       render json: vehicle
@@ -22,7 +22,7 @@ class Api::V1::VehiclesController < ApplicationController
   end
 
   def destroy
-    vehicle  = Vehicle.find(params[:vehicle_id])
+    vehicle  = Vehicle.find(params[:id])
 
     if vehicle.destroy
       render json: "Vehicle deleted successfully"
