@@ -22,10 +22,10 @@ class Api::V1::VehiclesController < ApplicationController
   end
 
   def destroy
-    vehicle  = Vehicle.find(params[:id])
+    vehicle = Vehicle.find(params[:id])
 
     if vehicle.destroy
-      render json: "Vehicle deleted successfully"
+      render json: 'Vehicle deleted successfully'
     else
       render json: vehicle.errors.full_messages
     end
