@@ -1,7 +1,7 @@
 class Api::V1::ReservationsController < ApplicationController
-  def index; end
+  def index
+    reservations = Reservation.where(user: current_user)
+    render json: reservations
+  end
 
-  def create; end
-
-  def destroy; end
 end
