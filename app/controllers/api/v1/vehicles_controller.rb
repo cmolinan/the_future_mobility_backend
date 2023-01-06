@@ -22,4 +22,10 @@ class Api::V1::VehiclesController < ApplicationController
   end
 
   def destroy; end
+
+  private
+
+  def create_vehicle_params
+    params.require(:vehicle).permit(:name, :image)
+  end
 end
