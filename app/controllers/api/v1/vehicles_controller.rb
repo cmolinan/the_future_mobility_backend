@@ -11,7 +11,15 @@ class Api::V1::VehiclesController < ApplicationController
     render json: vehicle
   end
 
-  def create; end
+  def create
+    vehicle = Vehicle.new(crete_vehicle_params)
+
+    if vehicle.save
+      render json: vehicle
+    else
+      render json: vehicle.errors.full_messages
+    end
+  end
 
   def destroy; end
 end
