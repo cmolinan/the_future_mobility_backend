@@ -4,4 +4,13 @@ class Api::V1::ReservationsController < ApplicationController
     render json: reservations
   end
 
+  def create
+    reservation = Reservation.new(reservation_params, user: current_user, vehicle: Vehicle.where(id: params[:vehicle_id]))
+    if reservation.save
+      render json: reservation
+    else
+      render Json: reservation.errors.full_messages
+    end
+  end
+
 end
