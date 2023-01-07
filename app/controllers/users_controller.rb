@@ -1,11 +1,14 @@
 require 'json_web_token'
 require 'bcrypt'
 
-class UsersController < ApplicationController  
+class UsersController < ApplicationController
   include BCrypt
   before_action :authorize_request, except: %i[login signup]
 
-  def index; end
+  def index
+    @users = User.all
+    render json: @users
+  end
 
   def login
     @user = User.find_by_email(params[:email])
@@ -46,5 +49,4 @@ class UsersController < ApplicationController
   def signup_params
     params.permit(:name, :email, :password, :password_confirmation, :confirmed_at)
   end
-
 end

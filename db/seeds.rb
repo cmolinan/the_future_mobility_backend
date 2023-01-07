@@ -7,8 +7,8 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-@user1 = User.create(name: 'Tom Hanks')
-@user2 = User.create(name: 'Mark Hamilton')
+@user1 = User.create(name: 'Tom Hanks', email: "tom@m.com", password: "666666")
+@user2 = User.create(name: 'Mark Hamilton', email: "mark@m.com", password: "666666")
 
 
 @vehicle1= Vehicle.create(name: 'Tesla Model S',  image: 'https://tesla-cdn.thron.com/delivery/public/image/tesla/8a74d206-66dc-4386-8c7a-88ff32174e7d/bvlatuR/std/4096x2560/Model-S-Main-Hero-Desktop-LHD')

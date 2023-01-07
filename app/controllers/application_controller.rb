@@ -1,3 +1,6 @@
+require 'json_web_token'
+require 'bcrypt'
+
 class ApplicationController < ActionController::API
   respond_to :json
   include ActionController::MimeResponds
@@ -7,6 +10,7 @@ class ApplicationController < ActionController::API
   end
 
   private
+
   def authorize_request
     header = request.headers['Authorization']
     header = header.split.last if header
@@ -17,5 +21,4 @@ class ApplicationController < ActionController::API
       render json: { errors: e.message }, status: :unauthorized
     end
   end
-
 end
