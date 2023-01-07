@@ -3,12 +3,15 @@
 Rails.application.routes.draw do
   devise_for :users, defaults: { format: :json } 
 
-  resources :vehicles
-  resources :users, only: %i[index] do
-    resources :reservations, only: %i[index show create]
+  namespace :api do
+    namespace :v1 do
+      resources :vehicles, only: [:index, :create, :show, :destroy]
+      resources :users, only: %i[index] do
+        resources :reservations, only: [:index, :show, :create, :destroy]
+      end
+
+      post 'users/login' => 'users#login'
+      post 'users/signup' => 'users#signup'
+    end
   end
-
-  post 'users/login' => 'users#login'
-  post 'users/signup' => 'users#signup'
-
 end
