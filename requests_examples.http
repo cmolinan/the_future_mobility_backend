@@ -13,35 +13,97 @@ Content-Type: application/json
 }
 
 ### vehicles#show
-GET http://127.0.0.1:3000/api/v1/vehicles/:id
+GET http://127.0.0.1:3000/api/v1/vehicles/1
 
 ### Vehicles#destroy
-DELETE http://127.0.0.1:3000/api/v1/vehicles/:id
+DELETE http://127.0.0.1:3000/api/v1/vehicles/1
 
 
 ### reservations#index
-GET http://127.0.0.1:3000/api/v1/reservations HTTP/1.1
+GET http://127.0.0.1:3000/api/v1/users/2/reservations HTTP/1.1
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzMzOTM3OTd9.ttyhcMjfovL1dIxYaD3e0C236kogCM-PGT6JOId_2Gc
 
-{
-    "user_id": 2
-}
-### This also works:
-GET http://127.0.0.1:3000/api/v1/reservations?user_id=1 
 ### reservations#create
-POST http://127.0.0.1:3000/api/v1/reservations HTTP/1.1
+POST http://127.0.0.1:3000/api/v1/users/2/reservations HTTP/1.1
 Accept: application/json
 Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzMzOTM3OTd9.ttyhcMjfovL1dIxYaD3e0C236kogCM-PGT6JOId_2Gc
 
 {
     "reservation": {
         "reserve_date":"2023-01-21 11:00",
         "address":"Tokyo, Japan request htttp example",
-        "user_id": 1,
-        "vehicle_id": 1
+        "user_id": 2,
+        "vehicle_id": 2
     }
 }
 
 ### reservations#destroy
-DELETE http://127.0.0.1:3000/api/v1/reservations/:id
+DELETE http://127.0.0.1:3000/api/v1/users/1/reservations/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzMzOTM3OTd9.ttyhcMjfovL1dIxYaD3e0C236kogCM-PGT6JOId_2Gc
+
+### SING UP
+POST http://localhost:3000/api/v1/users/signup HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "example@gmail.com",
+  "password": "123456",
+  "name": "wander"
+}
+### res
+{
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjozLCJleHAiOjE2NzMzOTM3OTd9.ttyhcMjfovL1dIxYaD3e0C236kogCM-PGT6JOId_2Gc",
+  "exp": "01-10-2023 19:36",
+  "name": "wander"
+}
+
+### LOGIN
+POST http://localhost:3000/api/v1/users/login HTTP/1.1
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "example@gmail.com",
+  "password": "123456"
+}
+###
+API URL: http://localhost:3000/api/v1/users/signup
+POST
+
+* body example:
+{
+  "email": "tom@m.com",
+  "password": "123456",
+  "name": "Tom Sawyer"
+}
+
+* response example:
+{
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo2LCJleHAiOjE2NzMxNTI3ODF9.Ldu_RWd5OImcFdZoQJP9DqUarJiiLr5dBiBVA0lQ7Yo",
+  "exp": "01-07-2023 23:39",
+  "name": "Tom Sawyer"
+}
+
+-------------------
+
+***LOGIN
+API URL: http://localhost:3000/api/v1/users/login
+POST
+
+* body example:
+{
+  "email": "tom@m.com",
+  "password": "666666"
+}
+
+* response example:  (IMPORTANT ! ... save this Token. 
+			Needs be used in many requests)
+{
+  "token": "eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjo3LCJleHAiOjE2NzMxNTM1ODN9.B7d0qjibkysaCzdxceb8dei0sqYdY5OTfZ2PEmN-oYY",
+  "exp": "01-07-2023 23:53",
+  "name": "Tom Sawyer"
+}
