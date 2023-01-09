@@ -48,5 +48,5 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_175956) do
   end
 
   add_foreign_key "reservations", "users"
-  add_foreign_key "reservations", "vehicles"
+  add_foreign_key "reservations", "vehicles", on_delete: :cascade
 end
