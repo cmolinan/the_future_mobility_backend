@@ -1,39 +1,49 @@
-class Api::V1::VehiclesController < ApplicationController
-  def index
-    vehicles = Vehicle.all
+module Api
+  module V1
+    class VehiclesController < ApplicationController
+      before_action :read_vehicle, only: %i[show destroy]
 
-    render json: vehicles
-  end
+      def index
+        vehicles = Vehicle.all
 
-  def show
-    vehicle = Vehicle.find(params[:id])
+        render json: vehicles
+      end
 
-    render json: vehicle
-  end
+      def show
+        # vehicle = Vehicle.find(params[:id])
 
-  def create
-    vehicle = Vehicle.new(create_vehicle_params)
+        render json: @vehicle
+      end
 
-    if vehicle.save
-      render json: vehicle
-    else
-      render json: vehicle.errors.full_messages
+      def create
+        vehicle = Vehicle.new(create_vehicle_params)
+
+        if vehicle.save
+          render json: vehicle
+        else
+          render json: vehicle.errors.full_messages
+        end
+      end
+
+      def destroy
+        # vehicle = Vehicle.find(params[:id])
+
+        if @vehicle.destroy
+          render json: 'Vehicle deleted successfully'
+        else
+          render json: @vehicle.errors.full_messages
+        end
+      end
+
+      private
+
+      def create_vehicle_params
+        params.require(:vehicle).permit(:name, :image, :details1, :details2)
+      end
+
+      def read_vehicle
+        @vehicle = Vehicle.find(params[:id])
+      end
     end
-  end
-
-  def destroy
-    vehicle = Vehicle.find(params[:id])
-
-    if vehicle.destroy
-      render json: 'Vehicle deleted successfully'
-    else
-      render json: vehicle.errors.full_messages
-    end
-  end
-
-  private
-
-  def create_vehicle_params
-    params.require(:vehicle).permit(:name, :image)
   end
 end
