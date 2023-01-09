@@ -5,13 +5,10 @@ module Api
 
       def index
         vehicles = Vehicle.all
-
         render json: vehicles
       end
 
       def show
-        # vehicle = Vehicle.find(params[:id])
-
         render json: @vehicle
       end
 
@@ -26,8 +23,6 @@ module Api
       end
 
       def destroy
-        # vehicle = Vehicle.find(params[:id])
-
         if @vehicle.destroy
           render json: 'Vehicle deleted successfully'
         else

@@ -14,7 +14,6 @@ module Api
 
       def login
         @user = User.find_by_email(params[:email])
-        # debugger
         if @user
           if Password.new(@user.encrypted_password) == params[:password]
             token = JsonWebToken.encode(user_id: @user.id)

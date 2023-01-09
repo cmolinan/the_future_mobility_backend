@@ -10,7 +10,6 @@ module Api
       end
 
       def show
-        # reservation = Reservation.find(params[:id])
         render json: @reservation
       end
 
@@ -24,7 +23,6 @@ module Api
       end
 
       def destroy
-        # reservation = Reservation.find(params[:id])
         if @reservation.destroy
           render json: 'Reservation deleted successfully'
         else
