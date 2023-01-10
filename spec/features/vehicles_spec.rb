@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::VehiclesController, type: :controller do
   before(:each) do
+    #Authorize_requests
     allow(controller).to receive(:authorize_request).and_return(true)
   end
   before(:all) do
@@ -34,6 +35,18 @@ RSpec.describe Api::V1::VehiclesController, type: :controller do
       vehicles = Vehicle.all
       get :index
       expect(response.body).to eq(vehicles.to_json)
+    end
+  end
+
+  describe 'GET #show' do
+    it 'returns a success response' do
+      get :show, params: { id: @vehicle1.to_param }
+      expect(response).to be_successful
+    end
+    
+    it 'returns the requested vehicle' do
+      get :show, params: { id: @vehicle1.to_param }
+      expect(response.body).to eq(@vehicle1.to_json)
     end
   end
 end
