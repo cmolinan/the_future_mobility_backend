@@ -86,9 +86,9 @@ RSpec.describe Api::V1::VehiclesController, type: :controller do
 
   describe 'DELETE #destroy' do
     it 'deletes the requested vehicle' do
-      expect {
+      expect do
         delete :destroy, params: { id: @vehicle1.to_param }
-      }.to change(Vehicle, :count).by(-1)
+      end.to change(Vehicle, :count).by(-1)
     end
   end
 end

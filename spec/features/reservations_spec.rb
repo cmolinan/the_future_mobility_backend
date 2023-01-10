@@ -33,28 +33,29 @@ RSpec.describe Api::V1::ReservationsController, type: :controller do
     end
   end
 
-    describe 'GET #show' do
-      it 'returns the specified reservation' do
-        get :show, params: { id: @reserv1.to_param, user_id: @user.id }
-        expect(response).to have_http_status(200)
-        expect(response.body).to eq(@reserv1.to_json)
-      end
+  describe 'GET #show' do
+    it 'returns the specified reservation' do
+      get :show, params: { id: @reserv1.to_param, user_id: @user.id }
+      expect(response).to have_http_status(200)
+      expect(response.body).to eq(@reserv1.to_json)
     end
+  end
 
-    describe 'POST #create' do
-          it 'creates a new reservation' do
-            post :create, params: {user_id: @user.to_param, reservation: {reserve_date: '2023-01-21 11:00', address: 'New York, USA', user_id: @user.id,
-              vehicle_id: @vehicle1.id} }
-            expect(response).to have_http_status(201)
-            expect(response.body).to eq(Reservation.last.to_json)
-          end
-        end
+  describe 'POST #create' do
+    it 'creates a new reservation' do
+      reservation_params = { reserve_date: '2023-01-21 11:00', address: 'New York, USA', user_id: @user.id,
+                             vehicle_id: @vehicle1.id }
+      post :create, params: { user_id: @user.to_param, reservation: reservation_params }
+      expect(response).to have_http_status(201)
+      expect(response.body).to eq(Reservation.last.to_json)
+    end
+  end
 
-        describe 'DELETE #destroy' do
-              it 'deletes the specified reservation' do
-                delete :destroy, params: { id: @reserv1.to_param, user_id: @user.to_param }
-                expect(response).to have_http_status(200)
-                expect(response.body).to eq('Reservation deleted successfully')
-              end
-            end
+  describe 'DELETE #destroy' do
+    it 'deletes the specified reservation' do
+      delete :destroy, params: { id: @reserv1.to_param, user_id: @user.to_param }
+      expect(response).to have_http_status(200)
+      expect(response.body).to eq('Reservation deleted successfully')
+    end
+  end
 end
