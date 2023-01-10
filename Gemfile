@@ -6,6 +6,7 @@ ruby '3.1.3'
 # Test/specs gem
 gem 'rspec-rails'
 gem 'httparty'
+gem 'faraday'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4'
