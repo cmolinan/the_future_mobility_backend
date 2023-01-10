@@ -40,4 +40,13 @@ RSpec.describe Api::V1::ReservationsController, type: :controller do
         expect(response.body).to eq(@reserv1.to_json)
       end
     end
+
+    describe 'POST #create' do
+          it 'creates a new reservation' do
+            post :create, params: {user_id: @user.to_param, reservation: {reserve_date: '2023-01-21 11:00', address: 'New York, USA', user_id: @user.id,
+              vehicle_id: @vehicle1.id} }
+            expect(response).to have_http_status(201)
+            expect(response.body).to eq(Reservation.last.to_json)
+          end
+        end
 end
