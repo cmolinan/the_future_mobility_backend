@@ -49,4 +49,38 @@ RSpec.describe Api::V1::VehiclesController, type: :controller do
       expect(response.body).to eq(@vehicle1.to_json)
     end
   end
+
+  
+  describe 'POST #create' do
+    context 'with valid params' do
+      it 'returns a success response' do
+        post :create, params: { vehicle: {name: 'Tesla Model S', image: 'https://tesla-cdn.thron.com/delivery/public/image/tesla/8a74d206-66dc-4386-8c7a-88ff32174e7d/bvlatuR/std/4096x2560/Model-S-Main-Hero-Desktop-LHD'} }
+        expect(response).to be_successful
+      end
+      
+      it 'creates a new vehicle' do
+        expect {
+          post :create, params: { vehicle: {name: 'Tesla Model S', image: 'https://tesla-cdn.thron.com/delivery/public/image/tesla/8a74d206-66dc-4386-8c7a-88ff32174e7d/bvlatuR/std/4096x2560/Model-S-Main-Hero-Desktop-LHD'} }
+        }.to change(Vehicle, :count).by(1)
+      end
+
+      it 'returns the created vehicle' do
+        post :create, params: { vehicle: {name: 'Tesla Model S', image: 'https://tesla-cdn.thron.com/delivery/public/image/tesla/8a74d206-66dc-4386-8c7a-88ff32174e7d/bvlatuR/std/4096x2560/Model-S-Main-Hero-Desktop-LHD'} }
+        expect(response.body).to eq(Vehicle.last.to_json)
+      end
+    end
+
+    context 'with invalid params' do
+          it 'does not create a new vehicle' do
+            expect {
+              post :create, params: { vehicle: { name: '', image: '', details1: '', details2: '' } }
+            }.to_not change(Vehicle, :count)
+          end
+    
+          it 'returns the error messages' do
+            post :create, params: { vehicle: { name: '', image: '', details1: '', details2: '' } }
+            expect(response.body).to eq(["Name can't be blank", "Image can't be blank"].to_json)
+          end
+        end
+      end
 end
