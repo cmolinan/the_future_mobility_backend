@@ -9,7 +9,6 @@ RSpec.describe Api::V1::VehiclesController, type: :controller do
     @user = User.create(id: 1, name: 'Tom Hanks', email: 'tom@m.com', password: '666666')
     @user2 = User.create(id: 2, name: 'Mark Hamilton', email: 'mark@m.com', password: '666666')
 
-
     @vehicle1 = Vehicle.create(name: 'Tesla Model S', image: 'https://tesla-cdn.thron.com/delivery/public/image/tesla/8a74d206-66dc-4386-8c7a-88ff32174e7d/bvlatuR/std/4096x2560/Model-S-Main-Hero-Desktop-LHD')
     @vehicle2 = Vehicle.create(name: 'Tesla Model 3', image: 'https://tesla-cdn.thron.com/delivery/public/image/tesla/5a7b3001-249f-4065-a330-4ea6a17ccf7b/bvlatuR/std/2560x1708/Model-3-Main-Hero-Desktop-LHD')
     @vehicle3 = Vehicle.create(name: 'Tesla Model X', image: 'https://tesla-cdn.thron.com/delivery/public/image/tesla/8c26f779-11e5-4cfc-bd7c-dcd03b18ff88/bvlatuR/std/4096x2561/Model-X-Main-Hero-Desktop-LHD')
@@ -49,7 +48,6 @@ RSpec.describe Api::V1::VehiclesController, type: :controller do
       expect(response.body).to eq(@vehicle1.to_json)
     end
   end
-
 
   describe 'POST #create' do
     context 'with valid params' do
