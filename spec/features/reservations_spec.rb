@@ -49,4 +49,12 @@ RSpec.describe Api::V1::ReservationsController, type: :controller do
             expect(response.body).to eq(Reservation.last.to_json)
           end
         end
+
+        describe 'DELETE #destroy' do
+              it 'deletes the specified reservation' do
+                delete :destroy, params: { id: @reserv1.to_param, user_id: @user.to_param }
+                expect(response).to have_http_status(200)
+                expect(response.body).to eq('Reservation deleted successfully')
+              end
+            end
 end
