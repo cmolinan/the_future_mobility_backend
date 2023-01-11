@@ -2,6 +2,7 @@ module Api
   module V1
     class VehiclesController < ApplicationController
       before_action :read_vehicle, only: %i[show destroy]
+      before_action :authorize_request, only: %i[create destroy]
 
       def index
         vehicles = Vehicle.all
