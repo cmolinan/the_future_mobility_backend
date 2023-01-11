@@ -10,21 +10,19 @@ module Api
       end
 
       def show
-        # reservation = Reservation.find(params[:id])
         render json: @reservation
       end
 
       def create
         reservation = Reservation.new(create_reservation_params)
         if reservation.save
-          render json: reservation
+          render json: reservation, status: :created
         else
-          render Json: reservation.errors.full_messages
+          render Json: reservation.errors.full_messages, status: :unprocessable_entity
         end
       end
 
       def destroy
-        # reservation = Reservation.find(params[:id])
         if @reservation.destroy
           render json: 'Reservation deleted successfully'
         else
