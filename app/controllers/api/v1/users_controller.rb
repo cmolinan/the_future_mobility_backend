@@ -46,11 +46,11 @@ module Api
       private
 
       def login_params
-        params.permit(:email, :password)
+        params.require(:email, :password)
       end
 
       def signup_params
-        params.permit(:name, :email, :password, :password_confirmation, :confirmed_at)
+        params.permit(:name, :email, :password)
       end
     end
   end
