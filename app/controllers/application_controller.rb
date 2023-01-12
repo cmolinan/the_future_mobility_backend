@@ -1,7 +1,7 @@
 require 'json_web_token'
 require 'bcrypt'
 
-class Api::V1::ApplicationController < ActionController::API
+class ApplicationController < ActionController::API
   include ActionController::MimeResponds
 
   def not_found
