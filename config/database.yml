@@ -20,8 +20,8 @@ default: &default
   # For details on connection pooling, see Rails configuration guide
   # https://guides.rubyonrails.org/configuring.html#database-pooling
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  user: myapp
-  password: password
+  user: postgres
+  password: carloss
 
 development:
   <<: *default
@@ -83,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: future_mob_backend_prod
-  username: the_future_mobility_backend
-  password: <%= ENV["THE_FUTURE_MOBILITY_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>

@@ -19,12 +19,14 @@ module Api
             token = JsonWebToken.encode(user_id: @user.id)
             time = Time.now + 24.hours.to_i
             render json: { token:, exp: time.strftime('%m-%d-%Y %H:%M'),
-                           name: @user.name }, status: :ok
+                           name: @user.name,
+                           id: @user.id }, status: :ok
           else
-            render json: { error: 'unauthorized' }, status: :unauthorized
+            render json: { error: 'Bad password' }, status: :unauthorized
           end
         else
-          render json: { error: 'unauthorized', error_message: @user.errors }, status: :unauthorized
+          render json: { email: params[:email],
+                         error_message: 'User not found' }, status: :unauthorized
         end
       end
 
@@ -44,11 +46,11 @@ module Api
       private
 
       def login_params
-        params.permit(:email, :password)
+        params.require(:email, :password)
       end
 
       def signup_params
-        params.permit(:name, :email, :password, :password_confirmation, :confirmed_at)
+        params.permit(:name, :email, :password)
       end
     end
   end

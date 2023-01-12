@@ -47,6 +47,6 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_06_175956) do
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "reservations", "users"
+  add_foreign_key "reservations", "users", on_delete: :cascade
   add_foreign_key "reservations", "vehicles", on_delete: :cascade
 end
