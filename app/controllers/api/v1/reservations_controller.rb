@@ -14,19 +14,28 @@ module Api
       end
 
       def create
-        reservation = Reservation.new(create_reservation_params)
-        if reservation.save
-          render json: reservation, status: :created
+        if @current_user.id == params[:reservation][:user_id]
+          reservation = Reservation.new(create_reservation_params)
+
+          if reservation.save
+            render json: reservation, status: :created
+          else
+            render Json: reservation.errors.full_messages, status: :unprocessable_entity
+          end
         else
-          render Json: reservation.errors.full_messages, status: :unprocessable_entity
+          render json: { error_message: 'users can only create their own reservations' }, status: :unauthorized
         end
       end
 
       def destroy
-        if @reservation.destroy
-          render json: 'Reservation deleted successfully'
+        if @current_user.id == params[:user_id].to_i
+          if @reservation.destroy
+            render json: 'Reservation deleted successfully'
+          else
+            render json: @reservation.errors.full_messages
+          end
         else
-          render json: @reservation.errors.full_messages
+          render json: { error_message: 'users can only delete their own reservations' }, status: :unauthorized
         end
       end
 
