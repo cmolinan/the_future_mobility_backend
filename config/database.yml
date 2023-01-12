@@ -83,6 +83,4 @@ test:
 #
 production:
   <<: *default
-  database: future_mob_backend_prod
-  username: the_future_mobility_backend
-  password: <%= ENV["THE_FUTURE_MOBILITY_BACKEND_DATABASE_PASSWORD"] %>
+  url: <%= ENV['DATABASE_URL'] %>
