@@ -30,7 +30,7 @@
 
 > Describe your project in 1 or 2 sentences.
 
-**[your_project__name]** is a...
+**The Future Mobility BackEnd.** is a RoR API to manage CRUD operations in an electric cars users website. Complete Authorization, and authentication of users. CRUD operations on vehicles and Reservations.
 
 ## 🛠 Built With <a name="built-with"></a>
 
