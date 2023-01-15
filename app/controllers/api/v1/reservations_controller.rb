@@ -18,7 +18,7 @@ module Api
           reservation = Reservation.new(create_reservation_params)
 
           if reservation.save
-            render json: reservation, status: :created
+            render json: { reservation:, name: @current_user.name }, status: :created
           else
             render Json: reservation.errors.full_messages, status: :unprocessable_entity
           end
