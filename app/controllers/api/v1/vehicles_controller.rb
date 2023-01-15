@@ -34,7 +34,8 @@ module Api
       private
 
       def create_vehicle_params
-        params.require(:vehicle).permit(:name, :image, :enginepower, :enginetourque, :transmission, :fuel_capacity, :seat)
+        params.require(:vehicle).permit(:name, :image, :enginepower, :enginetourque,
+                                        :transmission, :fuel_capacity, :seat)
       end
 
       def read_vehicle
