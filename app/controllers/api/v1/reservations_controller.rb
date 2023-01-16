@@ -15,10 +15,11 @@ module Api
 
       def create
         if @current_user.id == params[:reservation][:user_id]
+          vehicle = Vehicle.where(id: params[:reservation][:vehicle_id])
           reservation = Reservation.new(create_reservation_params)
-
           if reservation.save
-            render json: reservation, status: :created
+            render json: { reservation:, name: @current_user.name,
+                           vehicle: }, status: :created
           else
             render Json: reservation.errors.full_messages, status: :unprocessable_entity
           end
