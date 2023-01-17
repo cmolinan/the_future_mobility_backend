@@ -26,29 +26,27 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 The Future Mobility BackEnd. <a name="about-project"></a>
+# 📖 The Future Mobility Backend <a name="about-project"></a>
 
 > Describe your project in 1 or 2 sentences.
 
-**The Future Mobility BackEnd.** is a RoR API to manage CRUD operations in an electric cars users website. Complete Authorization, and authentication of users. CRUD operations on vehicles and Reservations.
+**The Future Mobility Backend** is a Ruby on Rails API server to manage CRUD Vehicles and Reservations in an electric cars website, also allowing the creation of new users and the login through an authentication mechanism.
 
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
 <details>
   <summary>Client</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
+    <li><a href="https://reactjs.org/">React JS</a></li>
   </ul>
 </details>
 
 <details>
   <summary>Server</summary>
   <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://rubyonrails.org">Ruby on Rails</a></li>
   </ul>
 </details>
 
@@ -63,21 +61,18 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Create, Read and Delete operations of Vehicles**
+- **Sign-up and Login of Users**
+- **Create, Read and Delete operations of Reservations**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
+
 ## 🚀 Live Demo <a name="live-demo"></a>
 
-> Add a link to your deployed project.
-
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
+- [API Backend Service Link](https://future-mobility-backend.onrender.com/api/v1)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -85,397 +80,63 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
 
-In order to run this project you need:
+In order to run this Backend API Server you need:
 
-<!--
-Example command:
+- Ruby
+- Rails
+- Postgresql 
+#### Github
+- Enter this url: [https://github.com/Agetuni/the_future_mobility_backend](https://github.com/Agetuni/the_future_mobility_backend) in your web browser.
+- Once opened navigate to the top left level of the project a green code download button will be visible on the righthand side.
+- Select the download Zip option from drop-down menu.
+- Once the download is complete you will be able to access my project locally.
 
-```sh
- gem install rails
-```
- -->
-
-### Setup
-
-Clone this repository to your desired folder:
-
-<!--
-Example commands:
+#### Local (Terminal)
 
 ```sh
-  cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone https://github.com/Agetuni/the_future_mobility_backend.git
 ```
---->
 
 ### Install
 
-Install this project with:
+Install this project with the steps below:
 
-<!--
-Example command:
+- After cloning, type `cd the_future_mobility_backend` to access the project on the terminal.
+- Run `bundle install` to install all the required dependancies.
+- For developmente environment:
+  - Create Database with `rails db:create RAILS_ENV=development`
+  - Migrate Database with `rails db:migrate RAILS_ENV=development`
+  - Populate data with `rails db:seed RAILS_ENV=development`
 
-```sh
-  cd my-project
-  gem install
-```
---->
+- For testing porpouses:
+  - Create Database with `rails  db:create RAILS_ENV=test`
+  - Migrate Database with `rails db:migrate RAILS_ENV=test`
 
-### How to use this API:
+### Usage
 
+To run the project, execute the following command:
+- Run `rails s` to start a development server (it will run in port 3001)
+- Now, you are ready to consume the API endpoints
 
+To run the tests of the project, execute the following command:
+- Run `rspec` to start the tests
+<br><br>
 
-## BASEURL's:
+### How to use this API
 
-<a href="#">http://localhost:3001</a>
+- Consult the documentation in this link:
+https://documenter.getpostman.com/view/11181665/2s8ZDU74mn
 
-<a href="#">https://future-mobility-backend.onrender.com</a>
+- You can use a local or remote Base URL
 
----
+   * Local: <a href="#">http://localhost:3001</a>
 
-## SIGN-UP
+   * Remote (live demo): <a href="#">https://future-mobility-backend.onrender.com</a>
 
-<label>POST</label>
-<a href="#">/api/v1/users/signup</a>
-
-<strong>Body example:</strong>
-
-```
-{
-    "email":"tom@m.com",
-    "password":"123456",
-    "name":"TomSawyer"
-}
-```
-
-<strong>Response example:</strong>
-
-```
-{
-    "token": "eyJhbGciOiJIUzI1NiJ9eyJ1c2VyX2lkIjo2LCJleHAiOjE2NzMxNTI3ODF9Ldu_RWd5OImcFdZoQJP9DqUarJiiLr5dBiBVA0lQ7Yo",
-    "exp": "01-07-202323:39",
-    "name": "TomSawyer"
-    "id": "1"
-}
-```
----
-## LOGIN
-
-<label>POST</label>
-<a href="#">/api/v1/users/login</a>
-
-<strong>Body example:</strong>
-
-```
-{
-    "email":"tom@m.com",
-    "password":"666666"
-}
-```
-
-<strong>Response example:</strong>
-
-```
-{
-
-    "token":
-    "eyJhbGciOiJIUzI1NiJ9eyJ1c2VyX2lkIjo3LCJleHAiOjE2NzMxNTM1ODN9B7d0qjibkysaCzdxceb8dei0sqYdY5OTfZ2PEmN-oYY",
-    "exp":"01-07-202323:53",
-    "name":"TomSawyer",
-}
-```
----
-## LIST USERS
-
-<label>GET</label>
-<a href="#">/api/v1/users</a>
-
-<em>Send Token inside Auth-Bearer, without any wraps. Example:</em>
-
-```
-eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMxNTU3Njh9CU8H1c3IbQ7pVB_FdhP9oWiy6oi84K12Ze-GAvBoP9k
-```
-
-<strong>Body example:</strong>
-
-```
-{
-    "email":"tom@m.com",
-    "password":"666666"
-}
-```
-
-<strong>Response example:</strong>
-
-```
-[
-    {
-        "id":1,
-        "name":"TomHanks",
-        "created_at":"2023-01-07T05:46:47.680Z",
-        "updated_at":"2023-01-07T05:46:47.680Z",
-        "email":"tom@m.com"
-    },
-    {
-        "id":2,
-        "name":"MarkHamilton",
-        "created_at":"2023-01-07T05:46:47.994Z",
-        "updated_at":"2023-01-07T05:46:47.994Z",
-        "email":"mark@m.com"
-    }
-]
-```
----
-## LIST VEHICLES
-
-<label>GET</label>
-<a href="#">/api/v1/vehicles</a>
-
-<strong>Body example:</strong>
-<em>Without any token!</em>
-
-```
-{
-    "email":"tom@m.com",
-    "password":"666666"
-}
-```
-
-<strong>Response example:</strong>
-
-```
-[
-    {
-        "id":1,
-        "name":"TeslaModelS",
-        "image":"https://tesla-cdn.thron.com/delivery/public/image/tesla",
-        "details1":null,
-        "details2":null,
-        "created_at":"2023-01-07T05:46:48.019Z",
-        "updated_at":"2023-01-07T05:46:48.019Z"
-    },
-    {
-        "id":2,
-        "name":"TeslaModel3",
-        "image":"https://tesla-cdn.thron.com/delivery/public/image/tesla/",
-        "details1":null,
-        "details2":null,
-        "created_at":"2023-01-07T05:46:48.030Z",
-        "updated_at":"2023-01-07T05:46:48.030Z"
-    }
-]
-```
----
-
-## SHOWAVEHICLEDETAIL
-
-<label>GET</label><a href="#"> /api/v1/vehicles/2</a>
-
-<em>Without any token!</em>
-
-<strong>Response example:</strong>
-
-```
-{
-    "id":2,
-    "name":"TeslaModel3",
-    "image":
-    "https://tesla-cdn.thron.com/delivery/public/image/tesla",
-    "details1":null,
-    "details2":null,
-    "created_at":"2023-01-07T05:46:48.030Z",
-    "updated_at":"2023-01-07T05:46:48.030Z"
-}
-```
----
-
-## CREATEVEHICLE
-
-<label>POST</label><a href="#">/api/v1/vehicles</a>
-
-<strong>
-Send Token inside Auth-Bearer, without any wraps. Example:</strong>
-
-```
-eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMxNTU3Njh9.CU8H1c3IbQ7pVB_FdhP9oWiy6oi84K12Ze-GAvBoP9k
-```
-
-<strong>Body example:</strong>
-
-```
-{
-    "vehicle":{
-                "name":"ToyotaPriusPrime",
-                "image":"imagelink",
-                "details1":"Technicalinfopart1",
-                "details2":"Technicalinfopart2"
-            }
-}
-```
-
-_Response example:_
-
-```
-{
-    "id":6,
-    "name":"ToyotaPriusPrime",
-    "image":"imagelink",
-    "details1":"Technicalinfopart1",
-    "details2":"Technicalinfopart2",
-    "created_at":"2023-01-07T21:53:40.853Z",
-    "updated_at":"2023-01-07T21:53:40.853Z"
-}
-```
----
-
-## DELETE VEHICLE
-
-<label>DELETE</label>
-<a href="#">/api/v1/vehicles/6</a>
-
-**Send Token inside Auth-Bearer, without any wraps. Example:**
-
-```
-eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMxNTU3Njh9.CU8H1c3IbQ7pVB_FdhP9oWiy6oi84K12Ze-GAvBoP9k
-```
-
-**Response:**
-`Vehicle deleted successfully`
-
----
-
-## LIST RESERVATIONS OF A USER
-
-<label>GET</label> <a>/api/v1/users/1/reservations</a>
-
-**Send Token inside Auth-Bearer, without any wraps. Example:**
-
-```
-eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMxNTU3Njh9.CU8H1c3IbQ7pVB_FdhP9oWiy6oi84K12Ze-GAvBoP9k
-```
-
-**_Response example:_**
-
-```
-[
-    {
-        "id":1,
-        "reserve_date":"2023-01-21T11:00:00.000Z",
-        "address":"NewYork,USA",
-        "created_at":"2023-01-07T05:46:48.113Z",
-        "updated_at":"2023-01-07T05:46:48.113Z",
-        "user_id":1,
-        "vehicle_id":1
-    }
-]
-```
----
-## SHOW A DETAIL RESERVATION
-
-<label>GET</label>
-<a href="#">/api/v1/users/1/reservations/3</a>
-
-**Send Token inside Auth-Bearer, without any wraps. Example:**
-
-```
-eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMxNTU3Njh9.CU8H1c3IbQ7pVB_FdhP9oWiy6oi84K12Ze-GAvBoP9k
-```
-
-**Response example:**
-
-```
-{
-    "id":3,
-    "reserve_date":"2023-01-14T10:45:00.000Z",
-    "address":"Berlin,Germany",
-    "created_at":"2023-01-07T05:46:48.155Z",
-    "updated_at":"2023-01-07T05:46:48.155Z",
-    "user_id":1,
-    "vehicle_id":2
-}
-```
----
-## CREATE RESERVATION
-
-<label>POST</label>
-<a href="#">/api/v1/users/1/reservations</a>
-
-**Send Token inside Auth-Bearer, without any wraps. Example:**
-
-```
-eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMxNTU3Njh9.CU8H1c3IbQ7pVB_FdhP9oWiy6oi84K12Ze-GAvBoP9k
-```
-
-**Body example:**
-
-```
-{
-    "reservation":{
-                    "reserve_date":"2023-01-2111:00",
-                    "address":"Tokyo,Japan",
-                    "user_id":3,
-                    "vehicle_id":3
-                }
-}
-```
-
-**Response example:**
-```
-{
-    "id":5,
-    "reserve_date":"2023-01-21T11:00:00.000Z",
-    "address":"Tokyo,Japan",
-    "created_at":"2023-01-07T22:03:51.867Z",
-    "updated_at":"2023-01-07T22:03:51.867Z",
-    "user_id":3,
-    "vehicle_id":3
-}
-```
----
-
-## DELETE RESERVATION
-<label>DELETE</label> <a href="#">/api/v1/users/3/reservations/5</a>
-
-
-**Send Token inside Auth-Bearer, withoutanywraps. Example:**
-```
-eyJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoxLCJleHAiOjE2NzMxNTU3Njh9.CU8H1c3IbQ7pVB_FdhP9oWiy6oi84K12Ze-GAvBoP9k
-```
-
-*Response example:*
-
-`
-Reservation deleted successfully
-`
-### Run tests
-
-To run tests, run the following command:
-
-<!--
-Example command:
-
-```sh
-  bin/rails test test/models/article_test.rb
-```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -483,19 +144,31 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
 
-👤 **Author1**
+## 👤 Carlos Molina
+- GitHub: [Carlos Molina](https://github.com/cmolinan)
+- LinkedIn: [Carlos Molina](https://www.linkedin.com/in/carlosmolinan)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+## 👤 Wander Gonzalez
 
-👤 **Author2**
+- GitHub: [@wandergithub](https://github.com/wandergithub)
+- Twitter: [@wanderklk1](https://twitter.com/wanderklk1)
+- LinkedIn: [Wander A. Gonzalez](https://www.linkedin.com/in/wander-a-gonzalez-53127b205/)
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+
+## 👤 Aleazar Yilma
+
+- GitHub: [@Agetuni](https://github.com/Agetuni)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/aleazaryilma/)
+- AngelList: [timo-wester](https://angel.co/u/aleazar-yilma-1)
+
+
+## 👤 Neeraj Bhardwaj
+
+- GitHub: [@Neeraj-Bhardwaj](https://github.com/rebel216)
+- Twitter: [@Neeraj-Bhardwaj](https://twitter.com/rebel216)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/neerajbhardwaj216/)
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -503,21 +176,25 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- **Add authorization feature to have an admin role**
+- **Logic to not allow reservations of vehicles on dates already reserved**
+- **Add logic to permit UPDATE of vehicles and reservations**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-<!-- CONTRIBUTING -->
 
+<!-- CONTRIBUTING -->
 ## 🤝 Contributing <a name="contributing"></a>
 
-Contributions, issues, and feature requests are welcome!
+Contributions are what makes the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
 
-Feel free to check the [issues page](../../issues/).
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue, feel free to check the [issues page](../../issues/).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -525,9 +202,8 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
+If you like this project. Don't forget to give it a ⭐️
 
-If you like this project...
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -535,25 +211,8 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-<!-- FAQ (optional) -->
-
-## ❓ FAQ (OPTIONAL) <a name="faq"></a>
-
-> Add at least 2 questions new developers would ask when they decide to use your project.
-
-- **[Question_1]**
-
-  - [Answer_1]
-
-- **[Question_2]**
-
-  - [Answer_2]
+- This webpage is based on an original  [design](https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign) provided by [Murat Korkmaz](https://www.behance.net/muratk) on Behance.
+  https://www.behance.net/gallery/26425031/Vespa-Responsive-Redesign
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -563,6 +222,5 @@ I would like to thank...
 
 This project is [MIT](./LICENSE) licensed.
 
-_NOTE: we recommend using the [MIT license](https://choosealicense.com/licenses/mit/) - you can set it up quickly by [using templates available on GitHub](https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository). You can also use [any other license](https://choosealicense.com/licenses/) if you wish._
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
