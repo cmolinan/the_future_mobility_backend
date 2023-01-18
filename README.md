@@ -28,8 +28,6 @@
 
 # 📖 The Future Mobility Backend <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
-
 **The Future Mobility Backend** is a Ruby on Rails API server to manage CRUD Vehicles and Reservations in an electric cars website, also allowing the creation of new users and the login through an authentication mechanism.
 
 ## 🛠 Built With <a name="built-with"></a>
