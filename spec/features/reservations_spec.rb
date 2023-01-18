@@ -39,5 +39,4 @@ RSpec.describe Api::V1::ReservationsController, type: :controller do
       expect(response.body).to eq(@reserv1.to_json)
     end
   end
-
 end
