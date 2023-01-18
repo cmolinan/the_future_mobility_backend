@@ -5,7 +5,7 @@ module Api
       before_action :read_reservation, only: %i[show destroy]
 
       def index
-        reservations = Reservation.where(user_id: params[:user_id])
+        reservations = Vehicle.joins(:reservations).select('reservations.*, vehicles.name as "vehicle_name"')
         render json: reservations
       end
 
