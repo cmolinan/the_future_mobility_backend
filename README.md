@@ -56,6 +56,13 @@
 </details>
 
 <!-- Features -->
+<!-- Features -->
+### Kanban Board <a name="key-features"></a>
+
+- [kanban Board project](https://github.com/users/Agetuni/projects/3)
+- [Inital picture ](https://user-images.githubusercontent.com/55507343/211047900-c2f5683d-c5fa-4f72-8363-414811a577c8.png)
+- 4 Team Members [@wandergithub](https://github.com/wandergithub)  [@Neeraj-Bhardwaj](https://github.com/rebel216)  [Carlos Molina](https://github.com/cmolinan) [@Agetuni](https://github.com/Agetuni)
+
 
 ### Key Features <a name="key-features"></a>
 
@@ -71,6 +78,7 @@
 ## 🚀 Live Demo <a name="live-demo"></a>
 
 - [API Backend Service Link](https://future-mobility-backend.onrender.com/api/v1)
+- [Frontend Demo](https://futuremobility.netlify.app/)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
