@@ -56,6 +56,13 @@
 </details>
 
 <!-- Features -->
+### Kanban Board <a name="key-features"></a>
+
+- [kanban Board project](https://github.com/users/Agetuni/projects/3)
+- [Inital picture ](https://user-images.githubusercontent.com/55507343/211047900-c2f5683d-c5fa-4f72-8363-414811a577c8.png)
+- 4 Team Members [@wandergithub](https://github.com/wandergithub)  [@Neeraj-Bhardwaj](https://github.com/rebel216)  [Carlos Molina](https://github.com/cmolinan) [@Agetuni](https://github.com/Agetuni)
+
+<!-- Features -->
 
 ### Key Features <a name="key-features"></a>
 
