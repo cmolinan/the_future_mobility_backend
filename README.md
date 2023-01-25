@@ -85,7 +85,7 @@ This full stack challenge was developed by a team of four members
 - Consult the documentation of the API-Backend in this link:
   https://documenter.getpostman.com/view/11181665/2s8ZDU74mn
 
-  [API Backend Service Link](https://future-mobility-backend.onrender.com/api/v1)
+  API Backend Service URL: https://future-mobility-backend.onrender.com/api/v1
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
