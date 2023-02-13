@@ -28,7 +28,7 @@
 
 # 📖 The Future Mobility Backend <a name="about-project"></a>
 
-**The Future Mobility Backend** is a Ruby on Rails API-only server to manage CRUD of vehicles and reservations in an electric cars website, which also allows the creation of new users and the login through an authentication mechanism. You can test it using the respective front-end webapp (https://futuremobility.netlify.app/). 
+**The Future Mobility Backend** is a Ruby on Rails API-only server to manage CRUD of vehicles and reservations in an electric cars website, which also allows the creation of new users and the login through an authentication mechanism. You can test it using the respective front-end webapp (https://future-mobility.netlify.app/). 
 This full stack challenge was developed by a team of four members
 
 <a href="https://github.com/Agetuni/the_future_mobility_frontend">Click here to see the FRONT-END project</a>
